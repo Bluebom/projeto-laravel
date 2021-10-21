@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\Saudacao;
 use App\Http\Controllers\SiteController;
+use App\Models\Cliente;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +24,4 @@ Route::get('/', function () {
 Route::get('/home', [SiteController::class, 'index']);
 Route::get('/servico/{id?}', [SiteController::class, 'servico']);
 Route::get('/saudacao/{nome?}', Saudacao::class);
+Route::get('/cliente', [ClienteController::class, 'index']);
