@@ -24,4 +24,7 @@ Route::get('/', function () {
 Route::get('/home', [SiteController::class, 'index']);
 Route::get('/servico/{id?}', [SiteController::class, 'servico']);
 Route::get('/saudacao/{nome?}', Saudacao::class);
-Route::get('/cliente', [ClienteController::class, 'index']);
+Route::get('/clientes', [ClienteController::class, 'index'])->name("clientes");
+Route::get('/clientes/create', [ClienteController::class, 'create'])->name("cliente.create");
+Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name("cliente.show");
+Route::post('/clientes', [ClienteController::class, 'store'])->name('clientes.store');
