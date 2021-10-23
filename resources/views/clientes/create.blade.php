@@ -14,12 +14,12 @@
             <div class="col-md-5 mt-4 mx-auto">
                 <div class="row">
                     <div class="form-floating mb-3 col-md-6">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Nome">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Nome" required>
                         <label for="name" class="ps-4">Nome</label>
                     </div>
                     <div class="form-floating col-md-6">
                         <input type="text" class="form-control" id="address" name="endereco"
-                            placeholder="Av. José Americo de Almeida">
+                            placeholder="Av. José Americo de Almeida" required>
                         <label for="address" class="ps-4">Endereço</label>
                     </div>
                     <div class="form-floating mb-3 col-md-12">

@@ -24,7 +24,12 @@
                         <td><a href="{{ route('cliente.show', $cliente) }}">{{ $cliente->name }}</a></td>
                         <td>{{ $cliente->endereco }}</td>
                         <td>{{ $cliente->observacao }}</td>
-                        <td>&times;</td>
+                        <td>
+                            <a href="{{ route('cliente.edit', $cliente) }}"><i
+                                    class="fas fa-pencil-alt btn btn-primary"></i></a>
+                            <a deleteId="{{ $cliente->id }}" href=""><i deleteId="{{ $cliente->id }}"
+                                    class="fas fa-times btn btn-danger"></i></a>
+                        </td>
                     </tr>
                 @endforeach
             @elseif (!empty($cliente))
@@ -39,7 +44,12 @@
                     <td>{{ $cliente->name }}</td>
                     <td>{{ $cliente->endereco }}</td>
                     <td>{{ $cliente->observacao }}</td>
-                    <td>&times;</td>
+                    <td>
+                        <a href="{{ route('cliente.edit', $cliente) }}"><i
+                                class="fas fa-pencil-alt btn btn-primary"></i></a>
+                        <a deleteId="{{ $cliente->id }}" href=""><i deleteId="{{ $cliente->id }}"
+                                class="fas fa-times btn btn-danger"></i></a>
+                    </td>
                 </tr>
             @endif
 
