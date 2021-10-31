@@ -10,42 +10,40 @@
     <h2>Atualizar Cliente</h2>
     <div class="row">
         <div class="col-md-8 m-auto">
-            @foreach ($cliente as $value)
-                <div class="card text-center">
-                    <div class="card-header">
-                        <b>Cliente:</b> {{ $value->name }}
-                    </div>
-                    <form action="{{ route('cliente.update', $value) }}" method="post">
-                        <div class="card-body">
-                            @csrf
-                            @method('PUT')
-                            <div class="row">
-                                <div class="col-md-7 mt-2 mx-auto">
-                                    <div class="row">
-                                        <div class="mb-3 col-md-6">
-                                            <input type="text" class="form-control" id="name" name="name"
-                                                placeholder="Nome" value="{{ $value->name }}" required>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" id="address" name="endereco"
-                                                placeholder="Av. José Americo de Almeida" value="{{ $value->endereco }}" required>
-                                        </div>
-                                        <div class="mb-3 col-md-12">
-                                            <textarea class="form-control" placeholder="Leave a comment here"
-                                                id="observation" name="observacao"
-                                                style="height: 50px">{{ $value->observacao }}</textarea>
-                                        </div>
-
+            <div class="card text-center">
+                <div class="card-header">
+                    <b>Cliente:</b> {{ $cliente->name }}
+                </div>
+                <form action="{{ route('cliente.update', $cliente) }}" method="post">
+                    <div class="card-body">
+                        @csrf
+                        @method('PUT')
+                        <div class="row">
+                            <div class="col-md-7 mt-2 mx-auto">
+                                <div class="row">
+                                    <div class="mb-3 col-md-6">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Nome"
+                                            value="{{ $cliente->name }}" required>
                                     </div>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="address" name="address"
+                                            placeholder="Av. José Americo de Almeida" value="{{ $cliente->endereco }}"
+                                            required>
+                                    </div>
+                                    <div class="mb-3 col-md-12">
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="observation"
+                                            name="observation" style="height: 50px">{{ $cliente->observacao }}</textarea>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
-                        <div class="card-footer text-muted">
-                            <button class="btn btn-primary">Atualizar</button>
-                        </div>
-                    </form>
-                </div>
-            @endforeach
+                    </div>
+                    <div class="card-footer text-muted">
+                        <button class="btn btn-primary">Atualizar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection

@@ -42,7 +42,7 @@ class ClienteController extends Controller
      */
     public function show(int $id): View
     {
-        $cliente = Cliente::find($id);
+        $cliente = Cliente::findOrFail($id);
 
         return view("clientes.clientes", compact('cliente'));
     }
@@ -70,8 +70,7 @@ class ClienteController extends Controller
      */
     public function edit(int $id): View
     {
-        $clientes = new Cliente();
-        $cliente = $clientes::whereId($id)->get();
+        $cliente = Cliente::findOrFail($id);
         return view("clientes.edit", compact('cliente'));
     }
 
@@ -84,18 +83,20 @@ class ClienteController extends Controller
      */
     public function update(int $id, Request $request): RedirectResponse
     {
-        $data = $request->except('_token');
-        $clientes = new Cliente();
-        $cliente = $clientes::find($id);
-        $cliente->update($data);
+        $cliente = Cliente::findOrFail($id);
+        $cliente->update([
+            'name' => $request->name,
+            'endereco' => $request->address,
+            'observacao' => $request->observation,
+        ]);
         return redirect("/clientes/$id/edit");
     }
 
     // Deleta o usuário
     public function delete(int $id)
     {
-        $clientes = new Cliente();
-        if ($clientes::whereId($id)->delete()) {
+        $clientes = Cliente::findOrFail($id);
+        if ($clientes->delete()) {
             return true;
         }
     }

@@ -13,4 +13,14 @@ class Cliente extends Model
         'endereco',
         'observacao'
     ];
+
+    /**
+     * Definindo relação
+     *
+     * @return collection
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
 }
