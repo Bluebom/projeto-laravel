@@ -26,7 +26,7 @@ Route::get('/home', [SiteController::class, 'index']);
 Route::get('/servico/{id?}', [SiteController::class, 'servico']);
 Route::get('/saudacao/{nome?}', Saudacao::class);
 
-
+// RPC (foacada nos endpoints)
 Route::get('/clientes', [ClienteController::class, 'index'])->name("clientes");
 Route::get('/clientes/create', [ClienteController::class, 'create'])->name("cliente.create");
 Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name("cliente.show");
